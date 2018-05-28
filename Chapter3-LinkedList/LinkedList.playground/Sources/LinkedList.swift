@@ -10,6 +10,7 @@ public struct LinkedList<Value> {
         return head == nil
     }
     
+    // To the front
     public mutating func push(_ value: Value) {
         head = Node(value: value, next: head)
         if tail == nil {
@@ -17,6 +18,7 @@ public struct LinkedList<Value> {
         }
     }
     
+    // To the back
     public mutating func append(_ value: Value) {
         guard !isEmpty else {
             push(value)
@@ -25,6 +27,31 @@ public struct LinkedList<Value> {
         
         tail!.next = Node(value: value)
         tail = tail!.next
+    }
+    
+    // Node at
+    public func node(at index: Int) -> Node<Value>? {
+        var currentNode = head
+        var currentIndex = 0
+        
+        while currentNode != nil && currentIndex < index {
+            currentNode = currentNode!.next
+            currentIndex+=1
+        }
+        
+        return currentNode
+    }
+    
+    @discardableResult
+    public mutating func insert(_ value: Value, after node: Node<Value>) -> Node<Value> {
+        guard tail !== node else {
+            append(value)
+            return tail!
+        }
+        
+        node.next = Node(value: value, next: node.next!)
+
+        return node.next!
     }
 }
 
