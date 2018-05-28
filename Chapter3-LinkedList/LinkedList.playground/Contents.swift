@@ -11,3 +11,18 @@ example(of: "Creating and Linking Nodes") {
     
     print(node1)
 }
+
+// Adding value at the front
+example(of: "push") {
+    var list = LinkedList<Int>()
+    list.push(3)
+    list.push(2)
+    list.push(1)
+    
+    print(list)
+}
+
+// Adding value at the back
+example(of: "append") {
+    
+}
