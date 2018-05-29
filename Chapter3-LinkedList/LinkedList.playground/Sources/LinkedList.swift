@@ -53,6 +53,17 @@ public struct LinkedList<Value> {
 
         return node.next!
     }
+    
+    @discardableResult
+    public mutating func pop() -> Value? {
+        defer {
+            head = head?.next
+            if isEmpty {
+                tail = nil
+            }
+        }
+        return head?.value
+    }
 }
 
 extension LinkedList {
