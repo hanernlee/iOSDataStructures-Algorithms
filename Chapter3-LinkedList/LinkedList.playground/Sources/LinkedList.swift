@@ -64,6 +64,35 @@ public struct LinkedList<Value> {
         }
         return head?.value
     }
+    
+    @discardableResult
+    public mutating func removeLast() -> Value? {
+        guard let head = head else { return nil }
+        guard head.next != nil else { return pop() }
+        
+        var prev = head
+        var current = head
+        
+        while let next = current.next {
+            prev = current
+            current = next
+        }
+        
+        prev.next = nil
+        tail = prev
+        return current.value
+    }
+    
+    @discardableResult
+    public mutating func remove(after node: Node<Value>) -> Value? {
+        defer {
+            if node.next === tail {
+                tail = node
+            }
+            node.next = node.next?.next
+        }
+        return node.next?.value
+    }
 }
 
 extension LinkedList {
