@@ -102,3 +102,16 @@ example(of: "using collection") {
     let sum = list.reduce(0, +)
     print("Sum of all values: \(sum)")
 }
+
+example(of: "array cow") {
+    let array = [1, 2]
+    var array2 = array1
+    
+    print("array1: \(array1)")
+    print("array2:" \(array2))
+    
+    print("---After adding 3 to array 2---")
+    array.append(3)
+    print("array1: \(array1)")
+    print("array2: \(array2)")
+}
