@@ -121,7 +121,9 @@ example(of: "Linked list cow") {
     list1.append(1)
     list1.append(2)
     
+    print("List1 uniquely referenced: \(isKnownUniquelyReferenced(&list1.head))")
     var list2 = list1
+    print("List1 uniquely referenced: \(isKnownUniquelyReferenced(&list1.head))")
     print("List1: \(list1)")
     print("List2: \(list2)")
     

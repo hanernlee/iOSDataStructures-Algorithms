@@ -101,6 +101,10 @@ public struct LinkedList<Value> {
     }
     
     private mutating func copyNodes() {
+        guard !isKnownUniquelyReferenced(&head) else {
+            return
+        }
+
         guard var oldNode = head else { return }
         
         head = Node(value: oldNode.value)
