@@ -22,3 +22,17 @@ public struct QueueArray<T>: Queue {
         return isEmpty ? nil : array.removeFirst()
     }
 }
+
+extension QueueArray: CustomStringConvertible {
+    public var description: String {
+        return array.description
+    }
+}
+
+var queue = QueueArray<String>
+queue.enqueue("Ray")
+queue.enqueue("Brian")
+queue.enqueue("Eric")
+queue.dequeue()
+queue
+queue.peek
