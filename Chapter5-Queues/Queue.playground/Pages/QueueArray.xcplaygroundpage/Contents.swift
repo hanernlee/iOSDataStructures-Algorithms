@@ -29,7 +29,7 @@ extension QueueArray: CustomStringConvertible {
     }
 }
 
-var queue = QueueArray<String>
+var queue = QueueArray<String>()
 queue.enqueue("Ray")
 queue.enqueue("Brian")
 queue.enqueue("Eric")

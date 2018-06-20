@@ -4,7 +4,7 @@
 public struct QueueStack<T>: Queue {
     private var leftStack: [T] = []
     private var rightStack: [T] = []
-    public init {}
+    public init() {}
     
     public var isEmpty: Bool {
         return leftStack.isEmpty && rightStack.isEmpty
