@@ -22,3 +22,16 @@ extension TreeNode {
         }
     }
 }
+
+// Level-order traverdal
+extension TreeNode {
+    public func forEachLevelOrder(visit: (TreeNode) -> Void) {
+        visit(self)
+        var queue = Queue<TreeNode>()
+        children.forEach { queue.enqueue($0) }
+        while let node = queue.dequeue() {
+            visit(node)
+            node.children.forEach { queue.enqueue($0) }
+        }
+    }
+}

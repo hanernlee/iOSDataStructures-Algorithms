@@ -55,3 +55,9 @@ example(of: "depth-first traversal") {
     let tree = makeBeverageTree()
     tree.forEachDepthFirst { print($0.value) }
 }
+
+example(of: "level-order traversal") {
+    let tree = makeBeverageTree()
+    tree.forEachLevelOrder { print($0.value) }
+}
+
