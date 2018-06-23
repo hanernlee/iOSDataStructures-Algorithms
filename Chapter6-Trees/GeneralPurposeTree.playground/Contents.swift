@@ -14,7 +14,7 @@ example(of: "creating a tree") {
 func makeBeverageTree() -> TreeNode<String> {
     let tree = TreeNode("Beverages")
     
-    let hot = TreeNode("hot)
+    let hot = TreeNode("hot")
     let cold = TreeNode("cold")
     
     let tea = TreeNode("tea")
@@ -41,7 +41,7 @@ func makeBeverageTree() -> TreeNode<String> {
     cold.add(soda)
     cold.add(milk)
     
-    tea.add(blacktea)
+    tea.add(blackTea)
     tea.add(greenTea)
     tea.add(chaiTea)
     
@@ -53,5 +53,5 @@ func makeBeverageTree() -> TreeNode<String> {
 
 example(of: "depth-first traversal") {
     let tree = makeBeverageTree()
-    tree.forEachDepthFirst(visit: { print($0.value) }
+    tree.forEachDepthFirst { print($0.value) }
 }
