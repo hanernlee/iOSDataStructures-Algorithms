@@ -35,3 +35,16 @@ extension TreeNode {
         }
     }
 }
+
+// Search
+extension TreeNode {
+    public func search(_ value: T) -> TreeNode? {
+        var result: TreeNode?
+        forEachLevelOrder { node in
+            if node.value == value {
+                result = node
+            }
+        }
+        return result
+    }
+}
