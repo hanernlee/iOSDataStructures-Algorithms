@@ -37,7 +37,7 @@ extension TreeNode {
 }
 
 // Search
-extension TreeNode {
+extension TreeNode where T: Equatable {
     public func search(_ value: T) -> TreeNode? {
         var result: TreeNode?
         forEachLevelOrder { node in
