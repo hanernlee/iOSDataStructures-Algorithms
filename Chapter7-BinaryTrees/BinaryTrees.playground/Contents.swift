@@ -30,3 +30,6 @@ example(of: "pre-order traversal") {
     tree.traversePreOrder { print($0) }
 }
 
+example(of: "post-order traversal") {
+    tree.traversePostOrder { print($0) }
+}

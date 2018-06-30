@@ -39,4 +39,10 @@ extension BinaryNode {
         leftChild?.traversePreOrder(visit: visit)
         rightChild?.traversePreOrder(visit: visit)
     }
+    
+    public func traversePostOrder(visit: (Element) -> Void) {
+        leftChild?.traversePostOrder(visit: visit)
+        rightChild?.traversePostOrder(visit: visit)
+        visit(value)
+    }
 }
