@@ -17,3 +17,16 @@ var tree: BinaryNode<Int> {
     
     return seven
 }
+
+example(of: "tree diagram") {
+    print(tree)
+}
+
+example(of: "in-order traversal") {
+    tree.traverseInOrder { print($0) }
+}
+
+example(of: "pre-order traversal") {
+    tree.traversePreOrder { print($0) }
+}
+
