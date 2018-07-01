@@ -29,3 +29,48 @@ extension BinarySearchTree {
         return node
     }
 }
+
+extension BinarySearchTree {
+    public func contains(_ value: Element) -> Bool {
+        var current = root
+        while let node = current {
+            if node.value == value {
+                return true
+            }
+            
+            if value < node.value {
+                current = node.leftChild
+            } else {
+                current = node.rightChild
+            }
+        }
+        return false
+    }
+}
+
+private extension BinarySearchTree {
+    var min: BinaryNode {
+        return leftChild?.min ?? self
+    }
+}
+
+extension BinarySearchTree {
+    public mutating func remove(_ value: Element) {
+        root = remove(node: root, value: value)
+    }
+    
+    private func remove(node: BinaryNode<Element>?, value: Element) -> BinaryNode<Element>? {
+        guard let node = node else { return nil }
+        
+        if value == node.value {
+            
+        } else if value < node.value {
+            node.leftChild = remove(node: node.leftChild, value: value)
+        } else {
+            node.rightChild = remove(node: node.rightChild, value: value)
+        }
+        return node
+    }
+}
+
+
