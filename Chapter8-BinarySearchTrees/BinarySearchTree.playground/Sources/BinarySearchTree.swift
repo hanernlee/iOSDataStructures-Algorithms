@@ -48,7 +48,7 @@ extension BinarySearchTree {
     }
 }
 
-private extension BinarySearchTree {
+private extension BinaryNode {
     var min: BinaryNode {
         return leftChild?.min ?? self
     }
@@ -63,7 +63,20 @@ extension BinarySearchTree {
         guard let node = node else { return nil }
         
         if value == node.value {
+            if node.leftChild == nil && node.rightChild == nil {
+                return nil
+            }
             
+            if node.leftChild == nil {
+                return node.rightChild
+            }
+            
+            if node.rightChild == nil {
+                return node.leftChild
+            }
+            
+            node.value = node.rightChild!.min.value
+            node.rightChild = remove(node: node.rightChild, value: node.value)
         } else if value < node.value {
             node.leftChild = remove(node: node.leftChild, value: value)
         } else {
