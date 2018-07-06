@@ -59,6 +59,15 @@ extension AVLTree {
         node.rightChild = rightRotate(rightChild)
         return leftRotate(node)
     }
+    
+    private func leftRightRotate(_ node: AVLNode<Element>) -> AVLNode<Element> {
+        guard let leftChild = node.leftChild else {
+            return node
+        }
+        
+        node.leftChild = leftRotate(leftChild)
+        return rightRotate(node)
+    }
 }
 
 extension AVLTree {
