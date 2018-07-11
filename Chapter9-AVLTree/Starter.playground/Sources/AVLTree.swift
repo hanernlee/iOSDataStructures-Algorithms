@@ -143,6 +143,8 @@ extension AVLTree {
     } else {
       node.rightChild = remove(node: node.rightChild, value: value)
     }
-    return node
+    let balancedNode = balanced(node)
+    balancedNode.height = max(balancedNode.leftHeight, balancedNode.rightHeight) + 1
+    return balancedNode
   }
 }
