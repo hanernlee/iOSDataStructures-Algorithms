@@ -30,7 +30,9 @@ extension AVLTree {
     } else {
       node.rightChild = insert(from: node.rightChild, value: value)
     }
-    return node
+    let balancedNode = balanced(node)
+    balancedNode.height = max(balancedNode.leftHeight, balancedNode.rightHeight) + 1
+    return balancedNode
   }
 
     private func leftRotate(_ node: AVLNode<Element>) -> AVLNode<Element> {
